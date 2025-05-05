@@ -1,1 +1,21 @@
-# Kubernetes Project
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-app
+  namespace: namespace-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-app
+  template:
+    metadata:
+      labels:
+        app: spring-boot-app
+    spec:
+      containers:
+        - name: spring-boot-container
+          image: ankii1212/kubernetes:latest
+          ports:
+            - containerPort: 8080
+
